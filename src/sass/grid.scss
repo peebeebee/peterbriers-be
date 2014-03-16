@@ -1,0 +1,57 @@
+/**
+ * @see: http://www.heydonworks.com/article/tetris-the-power-of-css
+ */
+
+ul.grid {
+
+  li {
+    display: block;
+    width: 33.333%;
+    float: left;
+  }
+  li:nth-child(3n + 1):last-child {
+    width: 100%;
+  }
+  li:nth-child(3n + 1):nth-last-child(2),
+  li:nth-child(3n + 1):nth-last-child(2) + li {
+    width: 50%;
+  }
+
+}
+
+// Custom
+.grid {
+//  width: 800px;
+  padding: 0;
+  li > div {
+    height: 42.5vh;
+    outline: 1px solid white;
+    background-color: blue;
+    color: white;
+    padding: 2rem;
+    position: relative;
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      width: 1px;
+      height: 1px;
+      background-color: transparent;
+      display: block;
+      border-width: 250px;
+      border-style: solid;
+      box-sizing: border-box;
+      transform:rotate(25deg);
+    }
+    &:before {
+      left: 0;
+      bottom: 0;
+      border-color:transparent transparent rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1);
+    }
+    &:after {
+      top: 0;
+      right: 0;
+      border-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) transparent transparent;
+    }
+  }
+}
